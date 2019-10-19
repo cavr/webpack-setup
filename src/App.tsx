@@ -7,7 +7,9 @@ const App: any = () => {
     return (
         <div>
             <span>Hello {a}</span>
-            <LazyComponent />
+            <React.Suspense fallback={<div>Waiting</div>}>
+                <LazyComponent />
+            </React.Suspense>
         </div>
     );
 };
