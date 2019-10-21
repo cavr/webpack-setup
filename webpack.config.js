@@ -4,6 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require("imagemin-webpack");
 
 module.exports = {
+    output: {
+        path: __dirname + '/build'
+    },
+    entry: {
+        app: './src/index.js'
+    },
     module: {
         rules: [
             {
@@ -18,6 +24,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
+                exclude: '/node_modules/',
                 use: [
                     {
                         loader: 'html-loader'
@@ -83,8 +90,5 @@ module.exports = {
                 ]
             }
         })
-    ],
-    output: {
-        path: __dirname + '/build'
-    }
+    ]
 };
